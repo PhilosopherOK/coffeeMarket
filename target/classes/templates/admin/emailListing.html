@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EmailListing</title>
+  <style>
+    body{
+            background-color: #FAE9F2;
+            color: #56474F;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        form{
+            margin-bottom: 1.5rem;
+            margin-left: 5rem;
+        }
+        h1{
+            margin-top: 2rem;
+            margin-left: 3rem;
+        }
+        input{
+            height: 1.5rem;
+            border: none;
+            border-radius: 0.45rem;
+            margin-top: .7rem;
+            background-color: white;
+        }
+        #submit{
+          padding: 0.5rem;
+            margin: 1rem 0.5rem 0rem 3rem;
+            color: #4D5E7C;
+            background-color: white;
+            border: none;
+            border-radius: 0.45rem;
+        }
+        #submit:hover{
+            background-color: #DFE7F6;
+
+        }
+        body > p:nth-child(3){
+          margin-left: 5rem;
+        }
+        body > p:nth-child(5){
+          background-color: white;
+            width: 9rem;
+            padding: 1rem;
+            text-align: center;
+            border: none;
+            border-radius: 0.45rem;
+            margin-left: 3rem;
+        }
+        a{
+            text-decoration: none;
+            color: #56474F;
+        }
+        a:hover{
+            font-size: larger;
+            color: #baa5b0;
+        }
+        h1{
+          font-size: 1.5rem;
+        }
+  </style>
+</head>
+<body>
+
+<form method="POST" action="/admin/emailListing">
+  <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+
+  <label for="email">Email:</label>
+  <input type="text" id="email" name="email"> <br> <!-- Добавлен атрибут name="email" -->
+
+  <label for="subject">Subject:</label>
+  <input type="text" id="subject" name="subject"> <br> <!-- Добавлен атрибут name="subject" -->
+
+  <label for="body">Body:</label>
+  <input type="text" id="body" name="text"> <br> <!-- Изменён атрибут name на "text" -->
+
+  <button id="submit" type="submit">Send</button>
+</form>
+
+<h1>emailListing Status</h1>
+<p th:if="${message}" th:text="${message}">Default message if none exists.</p>
+
+<hr/>
+<p><a th:href="@{/admin/}" href="/admin/">Admin Home</a></p>
+</body>
+</html>

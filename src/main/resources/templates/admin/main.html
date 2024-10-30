@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin main page</title>
+
+    <style>
+        body{
+            background-color: #FAE9F2;
+            color: #56474F;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 3rem;
+        }
+        form{
+            margin-bottom: 1.5rem;
+            margin-left: 5rem;
+        }
+        h1{
+            margin-top: 3rem;
+            margin-left: 3rem;
+        }
+        input{
+            height: 2rem;
+            padding: 0.5rem;
+
+            border: none;
+            border-radius: 0.45rem;
+            margin-top: 1rem;
+            background-color: white;
+        }
+        a{
+            text-decoration: none;
+            color: #56474F;
+        }
+        a:hover{
+            font-size: larger;
+            color: #baa5b0;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<p><a th:href="@{/admin/upload}" href="/admin/upload">Upload Items</a></p>
+
+<p><a th:href="@{/admin/announcement}" href="/admin/announcement">Announcements</a></p>
+
+<p><a th:href="@{/admin/emailListing}" href="/admin/emailListing">Email Listing</a></p>
+
+
+<form action="/logout" method="post">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+    <input type="submit" value="Logout">
+</form>
+</body>
+</html>
